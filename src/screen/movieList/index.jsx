@@ -6,19 +6,20 @@ import LoadingLazy from '../../components/loadingComponent';
 import CardList from '../../components/CardList';
 import { useNavigate } from 'react-router-dom';
 import FormFilter from '../../components/Form';
+import { useState } from 'react';
 
 const MovieList = () => {
   const { data, loading, years } = FetchingApi()
   const history = useNavigate()
-
-  console.log("data", data);
+  const [keySearch, setKeySearch] = useState('')
+  const [selectedYears, setSelectedYears] = useState('')
 
   const handleClick = (val) => {
     history(`/movie-detail/${val.id}`)
     localStorage.setItem('response', JSON.stringify(val))
   }
 
-  console.log("loading", years.map((val) => val))
+  const filteredMovies = selectedYears ? data.filter(movie => movie.release_date.includes(selectedYears)) : data
 
   if (loading) {
     return (
@@ -28,17 +29,25 @@ const MovieList = () => {
     )
   }
 
+  console.log("key", keySearch)
 
   return (
     <Box>
       <FlexContainer>
         <HeaderContainer>
-          <FormFilter dataFilter={years} />
+          <FormFilter 
+            dataFilter={years} 
+            searchText={keySearch}
+            handleChangeSearch={(e) => setKeySearch(e.target.value)}
+            value={selectedYears}
+            handleChangeFilter={(e) => setSelectedYears(e.target.value)}
+          />
           {/* this is header */}
         </HeaderContainer>
 
         <GridContainer>
-          {data?.map((val, index) => (
+          {filteredMovies?.filter(movie => movie.title.toLowerCase().includes(keySearch.toLowerCase()))
+          .map((val, index) => (
             <CardList 
               key={index} 
               title={val.title}

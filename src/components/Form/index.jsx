@@ -9,15 +9,14 @@ const FormFilter = ({
   dataFilter, 
   value, 
   handleChangeFilter,
-  handleSubmit
 }) => {
   return (
     
-      <StyledSearchForm onSubmit={handleSubmit}>
+      <StyledSearchForm>
         <Main>
           <div>
             <FormControl>
-              <FormLabel>Search</FormLabel>
+              <FormLabel>Filter By Title</FormLabel>
               <Input 
                 type={'text'}
                 value={searchText}
@@ -37,12 +36,6 @@ const FormFilter = ({
               </Select>
             </FormControl>
           </div>
-
-         <div>
-          <FormButton type="submit" colorScheme={'blue'} mt={7}>
-            Search
-          </FormButton>
-         </div>
         </Main>
       </StyledSearchForm>
     
@@ -54,7 +47,7 @@ export default FormFilter
 const Main = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 33%;
+  width: 20%;
   flex-direction: row;
   /* background-color: red; */
   text-align: center;

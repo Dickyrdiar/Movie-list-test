@@ -1,12 +1,23 @@
 import { Box } from "@chakra-ui/react"
 // import { useParams } from "react-router-dom"
 import styled from 'styled-components';
+import StarRating from "../../components/RatingComponent";
 
 const DetailMovie = () => {
   // const { id: movieId } = useParams()
 
   const detailData = JSON.parse(localStorage.getItem('response'))
   console.log('response', detailData)
+
+  const Percentage = (num) => {
+    return new Intl.NumberFormat('default', {
+      style: 'percent',
+      minimumFractionDigits: 2,
+      maximumSignificantDigits: 2
+    }).format(num /100)
+  }
+
+  console.log("percent", Percentage(detailData.popularity))
 
   return (
     <Box>
@@ -27,10 +38,11 @@ const DetailMovie = () => {
                 </Title>
                 <Description>
                   {detailData.overview}
+                  <StarRating rating={detailData.popularity} />
                 </Description> 
 
                 <Audience>
-                  <div>rate</div>
+                  <div>rate: {Percentage(detailData.popularity)}</div>
                   <div>Vote Count: {detailData.vote_count}</div>
                 </Audience>
               </ImageCaption>
