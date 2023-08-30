@@ -65,7 +65,7 @@ const FetchingApi = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [currentPage])
+  }, [])
 
   return {
     data,

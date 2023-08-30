@@ -21,6 +21,7 @@ const FormFilter = ({
                 type={'text'}
                 value={searchText}
                 onChange={handleChangeSearch}
+                autoComplete={false}
               />
             </FormControl>
           </div>
