@@ -1,32 +1,40 @@
-import { Box } from "@chakra-ui/react"
-import styled from "styled-components"
-import StarRating from "../RatingComponent"
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import styled from 'styled-components';
+import { Box, Text} from '@chakra-ui/react';
+import StarRating from '../RatingComponent';
 
-const CardList = ({ imageSrc, title, content }) => {
-  <CardContainer>
-    <img src={imageSrc} alt={title} />
-    <CardTitle>{title}</CardTitle>
-    <CardContent>{content}</CardContent>
-    <StarRating rating={100} />
-  </CardContainer>
-}
+const CardList = ({ imageSrc, title, rating, onClick }) => {
+  return (
+    <StyledCard onClick={onClick}>
+      <img src={imageSrc} alt={title}/>
+      <CardTitle>{title}</CardTitle>
+      <StarRating rating={rating} />
+    </StyledCard>
+  );
+};
 
 export default CardList
 
-const CardContainer = styled(Box)`
+
+const StyledCard = styled(Box)`
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-`
+  width: 140%;
+  height: 100%;
+  margin-top: 10%;
+`;
 
 const CardTitle = styled(Text)`
-  font-size: 1.5rem;
+  font-size: 16px;
   margin-bottom: 8px;
-`
+  margin-top: 10%;
+`;
 
 const CardContent = styled(Text)`
-  font-size: 1rem;
-  color: #444
-`
+  font-size: 12px;
+  color: #444;
+`;

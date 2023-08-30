@@ -26,8 +26,6 @@ const StarRating = ({ rating }) => {
     }
   })
 
-  console.log('cehck', starArray);
-
   /**
    * The rating value between 0 and 5.
   */
@@ -39,5 +37,10 @@ const StarRating = ({ rating }) => {
 export default StarRating
 
 const StarContainer = styled(Box)`
-  color: #f0ad4e
+  color: #f0ad4e;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 `

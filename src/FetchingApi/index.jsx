@@ -52,9 +52,9 @@ const FetchingApi = () => {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
+      window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+      !loading
+    )  {
       setCurrentPage(currentPage + 1);
     }
   };

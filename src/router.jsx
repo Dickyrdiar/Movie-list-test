@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import DetailMovie from "./screen/DetailMovie"
 import MovieList from "./screen/movieList"
 
 const AppIndex = () => {
@@ -6,7 +7,7 @@ const AppIndex = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MovieList />} />
-        <Route path="/movie-detail/:id" />
+        <Route path="/movie-detail/:id" element={<DetailMovie />} />
       </Routes>
     </BrowserRouter>
   )
