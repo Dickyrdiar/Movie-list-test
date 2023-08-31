@@ -1,5 +1,18 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
+
+//  * MovieList Component
+//  *
+//  * This component fetches and displays a list of top-rated movies from the MovieDB API.
+//  *
+//  *
+//  * Props:
+//  * - image: display image of movie objects fetched from the API.
+//  * - title: thie movie title to display .
+//  * - rating : an number from popularity fetched from API.
+//  *
+
 import styled from 'styled-components';
 import { Box, Text} from '@chakra-ui/react';
 import StarRating from '../RatingComponent';
