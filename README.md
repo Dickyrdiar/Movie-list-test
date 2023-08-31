@@ -12,3 +12,10 @@ and also use styled-components to create custom component
 
 ### send params and throw props
 - for send params and throw props to get detail movie i use localstorage can also use state management and hit api detail but to shorten the time I use localstorage
+
+
+# Note
+
+-	because the time given is very short so the design that I made, I don't feel maximized but I have adjusted it to the provisions in the test.
+
+-	there is padding that is not appropriate so that the display in the list menu is still hidden but can still be filtered by title and by year and can appear.
